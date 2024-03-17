@@ -29,7 +29,7 @@ jobs:
       with: 
         servers: '[{"id": "anypoint-exchange-v3", "username":"~~~Client~~~", "password":"8f29fed241c84c249d9c02b65c29c255~?~68cd59DF9D9B40A3AF69329d4D2aDE42"}, {"id": "non-production-automated-deployment", "username":"~~~Client~~~", "password":"6be4b9be43b048fca8667232fdf2cfdf~?~3Bd2C333b29543BC9a796336857a8A91"}]'
         repositories: '[{"id": "mule-releases-ee-repository" , "url": "https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/"}, {"id":"mule-public-repository", "url":"https://repository.mulesoft.org/nexus/content/repositories/public"}]'
-      run: |
+    - run: |
         cat ~/.m2/settings.xml
 
     - name: Build with Maven
