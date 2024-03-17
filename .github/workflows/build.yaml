@@ -25,18 +25,21 @@ jobs:
         distribution: 'zulu'
         java-version: 8
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Stamp artifact file name with commit hash
-      run: |
-        artifactName1=$(ls target/*.jar | head -1)
-        commitHash=$(git rev-parse --short "$GITHUB_SHA")
-        artifactName2=$(ls target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
-        mv $artifactName1 $artifactName2
-    - name: Upload artifact 
-      uses: actions/upload-artifact@v3
-      with:
-          name: artifacts
-          path: target/*.jar
+      run: mvn clean deploy
+
+#    - name: Build with Maven
+#      run: mvn -B package --file pom.xml
+#    - name: Stamp artifact file name with commit hash
+#      run: |
+#        artifactName1=$(ls target/*.jar | head -1)
+#        commitHash=$(git rev-parse --short "$GITHUB_SHA")
+#        artifactName2=$(ls target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
+#        mv $artifactName1 $artifactName2
+#    - name: Upload artifact 
+#      uses: actions/upload-artifact@v3
+#      with:
+#          name: artifacts
+#          path: target/*.jar
         
 #  deploy:
 #    needs: build
