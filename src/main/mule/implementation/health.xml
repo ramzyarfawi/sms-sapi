@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:java="http://www.mulesoft.org/schema/mule/java"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/java http://www.mulesoft.org/schema/mule/java/current/mule-java.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="healthFlow" doc:id="4b56d7fb-eaf6-40ab-a6a2-6a3d2d719296" >
+		<java:invoke-static doc:name="Invoke static" doc:id="92c68e86-b920-4a30-ac98-f07594738680" class="com.salesforce.utils.Utils" target="health" method="health()">
+		</java:invoke-static>
+		<set-payload value="#[vars.health]" doc:name="Set Payload" doc:id="fbd9c32c-3d4f-45f8-912f-904d172e8dac" />
+	</flow>
+</mule>

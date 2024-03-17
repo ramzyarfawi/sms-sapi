@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:twilio="http://www.mulesoft.org/schema/mule/twilio"
+	xmlns:nexmo-messages-api="http://www.mulesoft.org/schema/mule/nexmo-messages-api"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/nexmo-messages-api http://www.mulesoft.org/schema/mule/nexmo-messages-api/current/mule-nexmo-messages-api.xsd
+http://www.mulesoft.org/schema/mule/twilio http://www.mulesoft.org/schema/mule/twilio/current/mule-twilio.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="send-smsFlow" doc:id="86a59b20-3273-416e-b401-f798f50d96fd" >
+		<ee:transform doc:name="Transform Message" doc:id="dc38c85c-c9fd-4f9c-ba5d-a362c0c27777" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-payload>
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="phoneTo" ><![CDATA[%dw 2.0
+output application/java
+---
+payload.to]]></ee:set-variable>
+				<ee:set-variable variableName="phoneFrom" ><![CDATA[%dw 2.0
+output application/java
+---
+payload.from]]></ee:set-variable>
+				<ee:set-variable variableName="message" ><![CDATA[%dw 2.0
+output application/java
+---
+payload.message]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<twilio:create20100401-accounts-messagesjson-by-account-sid doc:name="Create Message" doc:id="6425ee59-b6c9-4bae-8af6-aea9278b6217" accountSid="#[p('twilio.accountSID')]" config-ref="Twilio_Connector_Config">
+			<twilio:accounts-messages-content ><![CDATA[#[%dw 2.0
+output application/x-www-form-urlencoded
+---
+{
+	From: vars.phoneFrom,
+	To: vars.phoneTo,
+	Body: vars.message
+}]]]></twilio:accounts-messages-content>
+		</twilio:create20100401-accounts-messagesjson-by-account-sid>
+	</flow>
+</mule>

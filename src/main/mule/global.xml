@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:twilio="http://www.mulesoft.org/schema/mule/twilio"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/twilio http://www.mulesoft.org/schema/mule/twilio/current/mule-twilio.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<twilio:config name="Twilio_Connector_Config" doc:name="Twilio Connector Config" doc:id="d581a507-badd-4e98-a4c7-e427876783ff" >
+		<twilio:account-sid-auth-token-connection username="${twilio.accountSID}" password="${twilio.authToken}" />
+	</twilio:config>
+	<global-property doc:name="Global Property" doc:id="b5e13e67-98fa-425d-9b8c-c57ef7eb4524" name="env" value="local" />
+	<configuration-properties doc:name="Configuration properties" doc:id="0311dfbe-e361-4c14-b652-1cc523d3987d" file="config/${env}-properties.yaml" />
+	<api-gateway:autodiscovery apiId="${api.id}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="7c262196-c21c-466b-aaad-308cc5c92c10" flowRef="sms-system-api-main" />
+</mule>

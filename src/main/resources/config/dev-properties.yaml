@@ -1,0 +1,6 @@
+api:
+  id: "19355322"
+twilio:
+  phoneNumber: "+15097923033"
+  accountSID: "ACb42a00aac8e30301bf77c99a0ac49ae5"
+  authToken: "f80cec7bdd0b31dc7d1b6ce70b756be5"
