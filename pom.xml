@@ -4,7 +4,7 @@
 
 	<groupId>2fdf0f92-7894-4d64-934e-2c509ced85d5</groupId>
 	<artifactId>sms-sapi</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.8</version>
 	<packaging>mule-application</packaging>
 
 	<name>sms-sapi</name>
@@ -50,6 +50,7 @@
 						<applicationName>${applicationName}</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
+						<deploymentTimeout>2000000</deploymentTimeout>
 						<properties>
 							<env>${env}</env>
 							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
