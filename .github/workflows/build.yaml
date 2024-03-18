@@ -62,7 +62,7 @@ jobs:
          -Dtarget=Cloudhub-US-East-2 \
          -DmuleVersion=4.6.0 \
          -Denvironment=Developpement \
-         -DapplicationName=sms-sapi-dev \
+         -DapplicationName=sms-sapi \
          -Denv=dev \
          -DdefaultURL=true \
          -Dconfig.key="s@lesforce!nterv" \
