@@ -52,8 +52,9 @@
 						<vCores>0.1</vCores>
 						<properties>
 							<env>${env}</env>
-							<dry-run>${config.dry-run}</dry-run>
-							<javax.accessibility.assistive_technologies>java.lang.Object</javax.accessibility.assistive_technologies>
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+							<anypoint.platform.gatekeeper>disabled</anypoint.platform.gatekeeper>
 						</properties>
 						<secureProperties>
 							<config.key>${config.key}</config.key>
