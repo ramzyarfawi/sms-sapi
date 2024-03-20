@@ -4,7 +4,7 @@
 
 	<groupId>2fdf0f92-7894-4d64-934e-2c509ced85d5</groupId>
 	<artifactId>sms-sapi</artifactId>
-	<version>1.1.1</version>
+	<version>1.1.2</version>
 	<packaging>mule-application</packaging>
 
 	<name>sms-sapi</name>
